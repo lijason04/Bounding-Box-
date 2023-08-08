@@ -1,0 +1,2 @@
+The program within boundingBoxFinder.py will attempt to find the bounding box needed for a cat within a predefined image using a Resnet50 model trained on the imagenet dataset.
+The directory "waitIm" is a folder full of images with some images of cats that are surronded by non-cat objects.
