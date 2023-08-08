@@ -143,12 +143,14 @@ def runStuff(imagePath, downscaleSize=32):
 
     imgRaw = PIL.Image.open(imagePath)
     imgArr = np.asarray(imgRaw)
-    kys = (imgArr.shape[0]//downscaleSize, imgArr.shape[1]//downscaleSize)
-    imgRaw = imgRaw.resize(kys)
+    downsizeDim = (imgArr.shape[0]//downscaleSize, imgArr.shape[1]//downscaleSize)
+    imgRaw = imgRaw.resize(downsizeDim)
     imgArr = np.asarray(imgRaw)
-    results = processImg(imgArr, (410,410))
-    plotResults(imgArr, results)
+    results = processImg(imgArr, (downsizeDim[0]- 20, downsizeDim[1] - 20))
+    if len(results) > 0:
+        plotResults(imgArr, results)
 
-imgPathWin ="C:\\Project23\\waitIm\\IMG_7986.jpg"
-imgPathWSL = "waitIm/cat.jpg"
+imgPathWin ="C:\\Project23\\waitIm\\snail.jpg"
 runStuff(imgPathWin, downscaleSize=2)
+
+
